@@ -31,9 +31,6 @@ public class AccountService {
         if (transactionType == TransactionType.DEPOSIT) {
             balanceAfter = balanceBefore.add(amount);
         } else if (transactionType == TransactionType.WITHDRAW) {
-            if (balanceBefore.compareTo(amount) < 0) {
-                throw new IllegalArgumentException("Insufficient funds");
-            }
             balanceAfter = balanceBefore.subtract(amount);
         } else {
             throw new IllegalArgumentException("Unsupported transaction type");
@@ -52,8 +49,7 @@ public class AccountService {
 
         accountTransactionEntityRepository.save(transaction);
 
-        log.info("Processed {} transaction for account {} with amount {}",
-                transactionType, accountId, amount);
+        log.info("Processed {} transaction for account {} with amount {}", transactionType, accountId, amount);
     }
 
     @Transactional(readOnly = true)
