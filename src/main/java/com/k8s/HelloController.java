@@ -12,6 +12,18 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
+
+//        // 20 MB = 20 * 1024 * 1024 bytes
+//        int size = 50 * 1024 * 1024;
+//
+//        // Creating a byte array of 20 MB
+//        byte[] largeArray = new byte[size];
+//
+//        // Optionally fill the array with some data
+//        for (int i = 0; i < largeArray.length; i++) {
+//            largeArray[i] = (byte) (i % 256);
+//        }
+
         return "Hello World from pod: " + hostname;
     }
 }
