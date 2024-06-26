@@ -29,8 +29,8 @@ public class AccountController {
     @GetMapping("/{accountId}/random")
     public void processRandomTransaction(@PathVariable Long accountId) {
         Random random = new Random();
-        BigDecimal amount = BigDecimal.valueOf(random.nextInt(10) + 1); // Losowa kwota od 1 do 100
-        TransactionType transactionType = random.nextBoolean() ? TransactionType.DEPOSIT : TransactionType.WITHDRAW; // Losowy typ transakcji
+        BigDecimal amount = BigDecimal.valueOf(random.nextInt(10) + 1);
+        TransactionType transactionType = random.nextBoolean() ? TransactionType.DEPOSIT : TransactionType.WITHDRAW;
 
         TransactionDto transactionDto = new TransactionDto(accountId, amount, transactionType);
         accountService.processTransaction(transactionDto);
