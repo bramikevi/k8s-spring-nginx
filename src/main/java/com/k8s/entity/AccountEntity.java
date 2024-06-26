@@ -1,4 +1,4 @@
-package com.k8s;
+package com.k8s.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

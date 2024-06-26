@@ -1,5 +1,6 @@
-package com.k8s;
+package com.k8s.entity;
 
+import com.k8s.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

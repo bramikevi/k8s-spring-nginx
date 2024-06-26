@@ -1,5 +1,11 @@
-package com.k8s;
+package com.k8s.service;
 
+import com.k8s.dto.TransactionDto;
+import com.k8s.entity.AccountEntity;
+import com.k8s.entity.AccountTransactionEntity;
+import com.k8s.enums.TransactionType;
+import com.k8s.repo.AccountEntityRepository;
+import com.k8s.repo.AccountTransactionEntityRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -64,7 +70,6 @@ public class AccountService {
         AccountEntity accountEntity = accountEntityRepository.findById(accountId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid account ID"));
 
-        BigDecimal balanceBefore = accountEntity.getBalance();
         accountEntity.setBalance(BigDecimal.ZERO);
         accountEntityRepository.save(accountEntity);
 
